@@ -106,6 +106,7 @@ func vertexHandler(o *Object, token string, rest ...string) error {
 	if err != nil {
 		return wrapParseErrors("vertex (v)", err)
 	}
+	v.Index = int64(len(o.Vertices) + 1)
 	o.Vertices = append(o.Vertices, v)
 	return nil
 }
@@ -115,6 +116,7 @@ func normalHandler(o *Object, token string, rest ...string) error {
 	if err != nil {
 		return wrapParseErrors("vertexNormal (vn)", err)
 	}
+	vn.Index = int64(len(o.Normals) + 1)
 	o.Normals = append(o.Normals, vn)
 	return nil
 }
@@ -125,6 +127,7 @@ func textureHandler(o *Object, token string, rest ...string) error {
 		return wrapParseErrors("textureCoordinate (vt)", err)
 	}
 
+	vt.Index = int64(len(o.Textures) + 1)
 	o.Textures = append(o.Textures, vt)
 	return nil
 }
