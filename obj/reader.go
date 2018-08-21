@@ -137,6 +137,7 @@ func faceHandler(o *Object, token string, rest ...string) error {
 	if err != nil {
 		return wrapParseErrors("face (f)", err)
 	}
+	f.Index = int64(len(o.Faces) + 1)
 	o.Faces = append(o.Faces, f)
 	return nil
 }
